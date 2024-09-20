@@ -27,7 +27,7 @@ The Architecture Compliance Suite (ACS) contains a set of functional tests, demo
 This suite contains self-checking, and portable C and assembly based tests with directed stimulus. These tests are available as open source. The tests and the corresponding abstraction layers are available with a BSD-3-Clause License allowing for external contribution.
 This suite is not a substitute for design verification.
 
-For more information on Architecture Compliance Suite see [Validation Methodology](<./docs/Arm CCA RMM Architecture Compliance Suite Validation Methodology.pdf>) document.
+For more information on Architecture Compliance Suite see [Validation Methodology](./docs/Arm_CCA_RMM_Architecture_Compliance_Suite_Validation_Methodology.pdf) document.
 
 ## This release
 - Release Version - 0.8
