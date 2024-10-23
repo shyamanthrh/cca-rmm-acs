@@ -29,13 +29,11 @@ else()
     set(COMPILE_PIE_SWITCH "")
 endif()
 
-if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-    set(C_COMPILE_DEBUG_OPTIONS "-g -Wa,-gdwarf-4")
-    set(ASM_COMPILE_DEBUG_OPTIONS "-g -Wa,--gdwarf-4")
-else()
-    set(COMPILE_DEBUG_OPTIONS "")
-endif()
-
-
 set(CMAKE_C_FLAGS          "${TARGET_SWITCH}  ${COMPILE_PIE_SWITCH} ${C_COMPILE_DEBUG_OPTIONS} -ffunction-sections -fdata-sections -mstrict-align -Os -ffreestanding -Wall -Werror -std=gnu99 -Wmissing-prototypes -Wmissing-declarations -Wstrict-prototypes -Wextra -Wconversion -Wsign-conversion -Wcast-align -Wstrict-overflow -DCMAKE_GNUARM_COMPILE -Wno-packed-bitfield-compat")
 set(CMAKE_ASM_FLAGS        "${TARGET_SWITCH} ${ASM_COMPILE_DEBUG_OPTIONS} -c -x assembler-with-cpp -Wall -Werror -ffunction-sections -fdata-sections -Wmissing-prototypes -Wmissing-declarations -Wstrict-prototypes -Wextra -Wconversion -Wsign-conversion -Wcast-align -Wstrict-overflow -DCMAKE_GNUARM_COMPILE")
+
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    string(APPEND CMAKE_C_FLAGS " -g -gdwarf-4")
+    string(APPEND CMAKE_ASM_FLAGS " -g -gdwarf-4")
+endif()
+
